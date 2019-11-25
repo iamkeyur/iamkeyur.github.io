@@ -143,6 +143,8 @@ Error message and password prompt
 
 <li>$:/config/AutoSave</li>
 
+<li>$:/config/DefaultSidebarTab</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
 
 <li>$:/core</li>
@@ -185,6 +187,8 @@ Error message and password prompt
 
 <li>$:/temp/info-plugin</li>
 
+<li>$:/temp/search</li>
+
 <li>$:/theme</li>
 
 <li>$:/themes/tiddlywiki/snowwhite</li>
@@ -196,6 +200,12 @@ Error message and password prompt
 <li>a33233f156a5531707f130c28565de69.png</li>
 
 <li>AboutMe</li>
+
+<li>Draft of 'SocialLinks'</li>
+
+<li>Draft of 'TableOfContents'</li>
+
+<li>Draft of 'TocPretext'</li>
 
 <li>NavBar</li>
 
@@ -223,6 +233,9 @@ Error message and password prompt
 <div id="storeArea" style="display:none;">
 <div created="20191118193125903" modified="20191118193125903" title="$:/config/AutoSave">
 <pre>no</pre>
+</div>
+<div created="20191125224428639" modified="20191125224428639" title="$:/config/DefaultSidebarTab">
+<pre>TableOfContents</pre>
 </div>
 <div created="20191118200809304" modified="20191118200809304" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
@@ -9465,8 +9478,8 @@ Error message and password prompt
 <div created="20191118200751348" modified="20191118200752611" title="$:/state/tab--86143343">
 <pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
 </div>
-<div created="20191118191130319" modified="20191125221820628" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Info</pre>
+<div created="20191118191130319" modified="20191125224424522" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Settings</pre>
 </div>
 <div created="20191118191131663" modified="20191118193343302" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
@@ -9474,7 +9487,7 @@ Error message and password prompt
 <div created="20191118191926014" modified="20191125223618186" title="$:/state/tab/sidebar--595412856">
 <pre>TableOfContents</pre>
 </div>
-<div created="20191125223430820" list="SocialLinks SukimaGravatar Sukima AboutMe TocPretext NavBar" modified="20191125223430820" title="$:/StoryList">
+<div created="20191125223430820" list="$:/ControlPanel [[Draft of 'TableOfContents']] [[Draft of 'SocialLinks']] SukimaGravatar Sukima AboutMe [[Draft of 'TocPretext']] NavBar" modified="20191125224422488" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9534,6 +9547,9 @@ Error message and password prompt
         }
     }
 }</pre>
+</div>
+<div created="20191125224124373" modified="20191125224125827" title="$:/temp/search">
+<pre>tab</pre>
 </div>
 <div created="20191118200733708" modified="20191118200735419" title="$:/theme">
 <pre>$:/themes/tiddlywiki/vanilla</pre>
@@ -9658,6 +9674,54 @@ Error message and password prompt
 
 I am a passionate software developer specialized in [[Ember.js|Ember]], JavaScript, and [[Ruby]]. I dabble in [[Photography]], [[360 panoramic tours|Panoramas]], [[interactive fiction|Interactive Fiction]], and geek culture.
 </pre>
+</div>
+<div created="20191125223656804" draft.of="SocialLinks" draft.title="SocialLinks" modified="20191125223740148" tags="" title="Draft of 'SocialLinks'" type="text/vnd.tiddlywiki">
+<pre>&lt;style&gt;
+.social-links {
+color: #000;
+fill: #000;
+}
+.social-links li {
+margin-left: -16px;
+list-style: none;
+}
+.social-links svg {
+width: 16px;
+height: 16px;
+margin: 0;
+padding: 0;
+}
+&lt;/style&gt;
+&lt;div class=&quot;social-links&quot;&gt;
+
+!!! Social Links
+
+* {{$:/site/images/rss}} [ext[RSS Feed|/atom.xml]]
+* {{$:/core/images/github}} [[GitHub|https://github.com/sukima]]
+* {{$:/core/images/twitter}} [[Twitter|https://twitter.com/sukima]]
+* {{$:/core/images/locked-padlock}} [[Keybase|https://keybase.io/sukima]]
+* {{$:/core/images/plugin-generic-language}} [ext[Pair with me|https://twitter.com/intent/tweet?text=DM%20sukima%20Are%20you%20interested%20in%20pairing%20on%20%3CDESCRIPTION%3E%3F]]
+
+&lt;/div&gt;
+</pre>
+</div>
+<div caption="{{$:/language/SideBar/Contents/Caption}}" created="20191125221823084" draft.of="TableOfContents" draft.title="TableOfContents" list="Panoramas" list-before="$:/core/ui/SideBar/Open" modified="20191125224129394" tags="$:/tags/SideBar" title="Draft of 'TableOfContents'" type="text/vnd.tiddlywiki">
+<pre>{{TocPretext}}
+
+&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'TableOfContents'&gt;&gt;
+
+&lt;/div&gt;
+
+{{TocPosttext}}</pre>
+</div>
+<div created="20191125222928066" draft.of="TocPretext" draft.title="TocPretext" modified="20191125224313006" tags="" title="Draft of 'TocPretext'" type="text/vnd.tiddlywiki">
+<pre>&lt;div class=&quot;tc-alert tc-alert-info tc-toc-box&quot;&gt;
+{{AboutMe}}
+&lt;/div&gt;
+
+{{SocialLinks}}</pre>
 </div>
 <div created="20191125222348888" modified="20191125222419521" tags="$:/tags/TopLeftBar" title="NavBar" type="text/vnd.tiddlywiki">
 <pre>&lt;&lt;hack-142&gt;&gt;
