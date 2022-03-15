@@ -2,9 +2,13 @@
     <head>
         <title>naïve</title>
         <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
-        <link rel="stylesheet" href="gallery.css"> 
+        <!-- Core CSS file -->
+        <link rel="stylesheet" href="https://unpkg.com/lightgallery@2.4.0/css/lightgallery.css">
+        <link rel="stylesheet" href="https://unpkg.com/lightgallery@2.4.0/css/lightgallery-bundle.css">
 
     </head>
+
+
 
     <body>
         <h2>Who is <i>naïve</i>?</h2>
@@ -17,21 +21,32 @@
             <li><b>Weight</b>: 54kg</li>
             <li><b>Education</b>: Master in Computer Science from <a href="https://www.concordia.ca/">Concordia Univeristy</a></li>
         </ul>
-        
-        
-        
+
+
+
         <h3>Family Details</h3>
         <ul>
             <li><b>Father</b>: Hasmukh Haribhai Patel</li>
             <li><b>Mother</b>: Asha Hasmukhbhai Patel</li>
             <li><b>Sister</b>: Happy Patel (Younger)</li>
         </ul>
-        
+
         <h3>Want to contact me?</h3>
         <ul>
             <li><b>Keyur</b>: +1-438-504-2803</li>
             <li><b>Email</b>: iamkeyur96@gmail.com</li>
             <li><b>Adress</b>: A-50 Manmohan Park, Odhav, Ahmedabad - 382415.</li>
         </ul>
+
+        <div id="lightgallery">
+            <a href="imgs/1.jpg" data-lg-size="1024-800">
+                <img alt=".." src="imgs/2.jpg" width="500px" height="700px" />
+            </a>
+            <a href="imgs/1.jpg" data-lg-size="1600-2400">
+                <img alt=".." src="imgs/1.jpg" width="500px" height="900px" />
+            </a>
+
+            ...
+        </div>
     </body>
 </html>
