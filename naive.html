@@ -6,11 +6,32 @@
 
         <!-- jQuery -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" type="text/javascript"></script>
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
         <!-- nanogallery2 -->
         <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
     </head>
+
+    <style>
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+
+        .my-float {
+            margin-top: 16px;
+        }
+    </style>
 
     <body>
         <h2>Who is <i>naïve</i>?</h2>
@@ -21,6 +42,10 @@
             <li><b>Mosal</b>: Thol</li>
             <li><b>Height</b>: 5"7</li>
             <li><b>Weight</b>: 54kg</li>
+            <li>
+                <b><address></address></b>: Toronto, Canada
+            </li>
+            <li><b>Status in Canada</b>: Permanent Resident</li>
             <li><b>Occupation</b>: Software Engineer at <a href="https://www.hubspot.com/">HubSpot</a></li>
             <li><b>Education</b>: Master in Computer Science from <a href="https://www.concordia.ca/">Concordia Univeristy</a></li>
         </ul>
@@ -36,23 +61,7 @@
         <ul>
             <li><b>Keyur</b>: +1-438-504-2803</li>
             <li><b>Email</b>: iamkeyur96@gmail.com</li>
-            <li><b>Address</b>: A-50 Manmohan Park, Odhav, Ahmedabad - 382415.</li>
         </ul>
-<!--
-        <div id="lightgallery">
-            <a href="imgs/2.jpg" data-lg-size="1024-800">
-                <img alt=".." src="imgs/2.jpg" width="500px" height="700px" />
-            </a>
-            <a href="imgs/3.JPG" data-lg-size="1600-2400">
-                <img alt=".." src="imgs/3.JPG" width="500px" height="800px" />
-            </a>
-
-            <a href="imgs/1.JPG" data-lg-size="1600-2400">
-                <img alt=".." src="imgs/1.JPG" width="500px" height="900px" />
-            </a>
-
-            ...
-        </div> -->
 
         <h1>Photos:</h1>
 
@@ -67,5 +76,9 @@
             <a href="imgs/2.jpg" data-ngThumb="imgs/2.jpg"> 2 </a>
             <a href="imgs/3.jpg" data-ngThumb="imgs/3.jpg"> 3 </a>
         </div>
+
+        <a href="https://wa.me/14385042803?text=Hey%20Keyur%2C%20Let%27s%20talk%21" class="float" target="_blank">
+            <i class="fa fa-whatsapp my-float"></i>
+        </a>
     </body>
 </html>
