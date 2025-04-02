@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Calculator</title>
+    <title>Retro Age Calculator</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
         * {
             margin: 0;
@@ -14,132 +14,157 @@
         }
 
         :root {
-            --primary-color: #4a6cfd;
-            --secondary-color: #8c54ff;
-            --text-color: #333;
-            --light-text: #fff;
-            --bg-color: #f5f7ff;
-            --card-bg: rgba(255, 255, 255, 0.85);
+            --primary-color: #ff00ff;
+            --secondary-color: #00ffff;
+            --text-color: #fff;
+            --bg-color: #000;
+            --card-bg: rgba(25, 25, 25, 0.9);
+            --grid-color: rgba(255, 0, 255, 0.2);
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'VT323', monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
             min-height: 100vh;
             overflow-x: hidden;
-        }
-
-        .parallax-container {
             position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            perspective: 1px;
         }
 
-        .parallax-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
+        /* Retro Grid Background */
+        .grid-background {
+            position: fixed;
+            width: 200%;
+            height: 200vh;
+            top: -50%;
+            left: -50%;
+            background-image: 
+                linear-gradient(var(--grid-color) 2px, transparent 2px),
+                linear-gradient(90deg, var(--grid-color) 2px, transparent 2px);
+            background-size: 40px 40px;
+            transform: perspective(500px) rotateX(45deg);
+            animation: grid-move 20s linear infinite;
+            z-index: 1;
         }
 
-        .layer-1 {
-            background: linear-gradient(135deg, #4a6cfd 0%, #8c54ff 100%);
-            transform: translateZ(-1px) scale(2);
-        }
-
-        .layer-2 {
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="20" cy="20" r="20" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="30" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: cover;
-            transform: translateZ(-0.5px) scale(1.5);
-        }
-
-        .layer-3 {
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="80" cy="30" r="15" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="25" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: cover;
-            transform: translateZ(-0.25px) scale(1.25);
+        @keyframes grid-move {
+            from { transform: perspective(500px) rotateX(45deg) translateY(0); }
+            to { transform: perspective(500px) rotateX(45deg) translateY(40px); }
         }
 
         .content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            position: relative;
+            z-index: 2;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 1rem;
-            transform: translateZ(0);
+            min-height: 100vh;
+            padding: 2rem;
         }
 
         h1 {
-            color: var(--light-text);
-            font-size: 2.5rem;
+            font-family: 'Press Start 2P', cursive;
+            color: var(--primary-color);
+            font-size: 2rem;
             text-align: center;
             margin-bottom: 2rem;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: 
+                2px 2px var(--secondary-color),
+                -2px -2px #ff0000;
+            animation: glitch 3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px var(--secondary-color), -2px -2px #ff0000; }
+            25% { text-shadow: -2px 2px #ff0000, 2px -2px var(--secondary-color); }
+            50% { text-shadow: 2px -2px var(--secondary-color), -2px 2px #ff0000; }
+            75% { text-shadow: -2px -2px #ff0000, 2px 2px var(--secondary-color); }
+            100% { text-shadow: 2px 2px var(--secondary-color), -2px -2px #ff0000; }
         }
 
         .card {
             background: var(--card-bg);
-            border-radius: 16px;
+            border: 3px solid var(--primary-color);
+            border-radius: 0;
             padding: 2rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 0 10px var(--primary-color),
+                0 0 20px var(--secondary-color);
             width: 90%;
             max-width: 500px;
-            animation: fadeIn 1s ease-out;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 20%,
+                rgba(255, 255, 255, 0.1) 20%,
+                rgba(255, 255, 255, 0.1) 40%,
+                transparent 40%
+            );
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            from { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            to { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
         .birth-info {
             text-align: center;
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid var(--primary-color);
         }
 
         .birth-info h2 {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: var(--secondary-color);
             margin-bottom: 0.5rem;
+            font-family: 'VT323', monospace;
         }
 
         .birth-info p {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 2rem;
+            font-family: 'VT323', monospace;
+            color: #0f0;
+            text-shadow: 0 0 10px #0f0;
         }
 
         .age-display {
             text-align: center;
             margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #0f0;
         }
 
         .age-title {
-            font-size: 1rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
             color: var(--secondary-color);
         }
 
         .age-value {
-            font-size: 3.5rem;
+            font-family: 'VT323', monospace;
+            font-size: 4rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #0f0;
+            text-shadow: 0 0 10px #0f0;
             line-height: 1;
         }
 
         .age-label {
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: var(--text-color);
             opacity: 0.8;
         }
@@ -153,52 +178,75 @@
 
         .detailed-age-item {
             text-align: center;
+            background: rgba(0, 255, 255, 0.1);
+            padding: 0.5rem;
+            border: 1px solid var(--secondary-color);
         }
 
         .detailed-value {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
+            font-family: 'VT323', monospace;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            text-shadow: 0 0 5px var(--secondary-color);
         }
 
         .detailed-label {
-            font-size: 0.8rem;
+            font-size: 1rem;
             color: var(--text-color);
-            opacity: 0.8;
         }
 
         .age-string {
             text-align: center;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-color);
+            font-size: 1.2rem;
+            color: #0f0;
             padding: 1rem;
-            border-radius: 8px;
-            background-color: rgba(0, 0, 0, 0.05);
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #0f0;
+            text-shadow: 0 0 5px #0f0;
+            font-family: 'VT323', monospace;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); color: var(--secondary-color); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
         }
         
         .pulse {
             animation: pulse 0.5s ease-in-out;
         }
 
+        /* CRT effect */
+        .content::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 999;
+        }
+
         /* Mobile responsive adjustments */
         @media (max-width: 600px) {
             h1 {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
 
             .card {
-                padding: 1.5rem;
+                padding: 1rem;
             }
 
             .age-value {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
 
             .detailed-age {
@@ -207,55 +255,50 @@
             }
 
             .detailed-value {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
 
             .age-string {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="parallax-container">
-        <div class="parallax-layer layer-1"></div>
-        <div class="parallax-layer layer-2"></div>
-        <div class="parallax-layer layer-3"></div>
-        
-        <main class="content">
-            <h1>Age Calculator</h1>
-            <div class="card">
-                <div class="birth-info">
-                    <h2>Date of Birth</h2>
-                    <p>March 28, 1996</p>
-                </div>
-                <div class="age-display">
-                    <div class="age-title">Current Age</div>
-                    <div class="age-value" id="years">0</div>
-                    <div class="age-label">Years</div>
-                </div>
-                <div class="detailed-age">
-                    <div class="detailed-age-item">
-                        <div class="detailed-value" id="days">0</div>
-                        <div class="detailed-label">Days</div>
-                    </div>
-                    <div class="detailed-age-item">
-                        <div class="detailed-value" id="hours">0</div>
-                        <div class="detailed-label">Hours</div>
-                    </div>
-                    <div class="detailed-age-item">
-                        <div class="detailed-value" id="minutes">0</div>
-                        <div class="detailed-label">Minutes</div>
-                    </div>
-                    <div class="detailed-age-item">
-                        <div class="detailed-value" id="seconds">0</div>
-                        <div class="detailed-label">Seconds</div>
-                    </div>
-                </div>
-                <div class="age-string" id="age-string"></div>
+    <div class="grid-background"></div>
+    <main class="content">
+        <h1>RETRO AGE CALC</h1>
+        <div class="card">
+            <div class="birth-info">
+                <h2>BIRTH DATE</h2>
+                <p>MAR-28-1996</p>
             </div>
-        </main>
-    </div>
+            <div class="age-display">
+                <div class="age-title">CURRENT AGE</div>
+                <div class="age-value" id="years">0</div>
+                <div class="age-label">YEARS</div>
+            </div>
+            <div class="detailed-age">
+                <div class="detailed-age-item">
+                    <div class="detailed-value" id="days">0</div>
+                    <div class="detailed-label">DAYS</div>
+                </div>
+                <div class="detailed-age-item">
+                    <div class="detailed-value" id="hours">0</div>
+                    <div class="detailed-label">HRS</div>
+                </div>
+                <div class="detailed-age-item">
+                    <div class="detailed-value" id="minutes">0</div>
+                    <div class="detailed-label">MIN</div>
+                </div>
+                <div class="detailed-age-item">
+                    <div class="detailed-value" id="seconds">0</div>
+                    <div class="detailed-label">SEC</div>
+                </div>
+            </div>
+            <div class="age-string" id="age-string"></div>
+        </div>
+    </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
